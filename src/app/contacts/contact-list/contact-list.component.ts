@@ -53,7 +53,6 @@ export class ContactListComponent implements OnInit {
       }
     };
 
-    // By default, a newly-created contact will have the selected state.
     this.selectContact(contact);
   }
 

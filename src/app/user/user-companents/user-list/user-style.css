@@ -1,0 +1,48 @@
+li {
+    list-style-type: none;
+}
+.my-background {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+
+}
+.news-list-list {
+    margin: 15px;
+    padding: 15px;
+}
+
+.record {
+    padding: 5px;
+    font-size: 18px;
+    border-bottom: 1px solid gray;
+    position: relative;
+}
+
+.record:last-child {
+    border-bottom: none;
+}
+
+.record:hover{
+    cursor: pointer;
+    background-color: #deffb0;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+
+.selected {
+    background-color: #a2bdff !important;
+}
+
+.title {
+    text-align: center;
+}
+
+.body-style{
+    max-height: 500px;
+    min-height: 500px;
+    overflow: auto;
+}

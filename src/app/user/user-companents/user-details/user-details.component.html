@@ -1,0 +1,26 @@
+<div *ngIf="user" class="row">
+    <div class="col-md-12">
+        <h2 *ngIf="user.id">Contact Details</h2>
+        <h2 *ngIf="!user.id">New User</h2>
+    </div>
+</div>
+<div *ngIf="user" class="row">
+    <form class="col-md-12">
+        <div class="form-group">
+            <label for="user-login">Login</label>
+            <input class="form-control" name="user-login" [(ngModel)]="user.login" placeholder="Login"/>
+        </div>
+        <div class="form-group">
+            <label for="user-name">Name</label>
+            <input class="form-control" name="user-name" [(ngModel)]="user.name" placeholder="Name"/>
+        </div>
+        <div class="form-group">
+            <label for="user-surname">Surname</label>
+            <input class="form-control" name="user-surname" [(ngModel)]="user.surname" placeholder="Surname"/>
+        </div>
+
+        <button class="btn btn-primary" *ngIf="!user.id" (click)="createUser(user)">Create</button>
+        <!--<button class="btn btn-info" *ngIf="user.id" (click)="updateContact(user)">Update</button>-->
+        <!--<button class="btn btn-danger" *ngIf="user.id" (click)="deleteContact(user.id)">Delete</button>-->
+    </form>
+</div>

@@ -18,6 +18,13 @@ export class UserService{
         catch(this.handleError);
     }
 
+    createUser(newUser: User): Promise<User> {
+        return this.http.post(this.url, newUser)
+            .toPromise()
+            .then(response => response.json() as User)
+            .catch(this.handleError);
+    };
+
     private handleError (error: any) {
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
