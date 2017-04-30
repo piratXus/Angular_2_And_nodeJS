@@ -46,9 +46,23 @@ export class UserService{
             .catch(this.handleError);
     }
 
+    addUserInBlackList(user: User):Promise<number>{
+        return this.http.post(this.usrBlackList,user).toPromise()
+            .then()
+            .catch(this.handleError);
+    }
+
+    deleteUserWithlackList(idUser:number): Promise<number>{
+        return this.http.delete(this.usrBlackList+'/'+idUser).toPromise()
+            .then(response => response.json() as String)
+            .catch(this.handleError);
+    }
+
     private handleError (error: any) {
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg); // log to console instead
     }
+
+
 }

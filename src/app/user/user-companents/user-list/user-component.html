@@ -26,7 +26,8 @@
                             <button class="btn btn-primary"
                                     (click)="selectUser(user)"
                                     [class.active]="user === selectedUser">Edit</button>
-                            <button class="btn btn-danger" > Add to black list</button>
+                            <button class="btn btn-danger"
+                                    (click) = "addUserInBlackList(user)"> Add to black list</button>
                         </td>
                     </tr>
 
@@ -51,7 +52,8 @@
                 <tr *ngFor = " let user of blackListUser">
                     <td>{{user.login}}</td>
                     <td>
-                        <button class="btn btn-success" >Delete</button>
+                        <button class="btn btn-success"
+                                (click) = "deleteUserWithBlackList(user.id)">Delete</button>
                     </td>
                 </tr>
 

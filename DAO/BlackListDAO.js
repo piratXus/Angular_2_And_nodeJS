@@ -9,12 +9,12 @@ var BlackList = {
         return db.query("select count(*) AS 'count' FROM blacklist WHERE id_user = ?",[idUser],callback)
     },
 
-    addUserInBlackList: function (id,callback) {
-        return db.query("INSERT INTO blacklist(idUser) VALUE (?)",[id],callback);
+    addUserInBlackList: function (User,callback) {
+        return db.query("INSERT INTO blacklist(id_user) VALUE (?)",[User.id],callback);
     },
 
     deleteUserWithBlackList:function (idUser,callback) {
-        return db.query("DELETE FROM blacklist WHERE idUser = ?",[idUser],callback)
+        return db.query("DELETE FROM blacklist WHERE id_user = ?",[idUser],callback)
     }
 
 };

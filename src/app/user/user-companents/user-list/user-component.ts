@@ -18,6 +18,7 @@ export class UserComponent{
     users: User[];
     blackListUser: User[];
     selectedUser: User;
+    selectUserForBlackList: User;
 
 
     constructor(private userService: UserService){}
@@ -49,8 +50,11 @@ export class UserComponent{
         });
     }
 
+
+
     selectUser(user: User) {
         this.selectedUser = user;
+        this.selectUserForBlackList = user;
     }
 
     createNewUser() {
@@ -76,8 +80,15 @@ export class UserComponent{
         this.ngOnInit();
     }
 
+    addUserInBlackList(user:User) {
+        this.selectUserForBlackList = user;
+        this.userService.addUserInBlackList(this.selectUserForBlackList).then(() => {
+            this.ngOnInit();
+        });
+    }
+
     deleteUserWithBlackList(userId: number): void {
-        this.userService.deleteUser(userId).then((deletedUserId: number) => {
+        this.userService.deleteUserWithlackList(userId).then(() => {
             this.ngOnInit();
         });
     }

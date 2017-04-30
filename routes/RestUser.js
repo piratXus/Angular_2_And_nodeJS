@@ -6,6 +6,45 @@ var router = express.Router();
 var User = require('../DAO/UserDAO');
 var BlackList = require('../DAO/BlackListDAO');
 
+router.post('/blacklist',function(req,res,next){
+    BlackList.addUserInBlackList(req.body,function(err,count){
+        if(err)
+        {
+            res.json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
+
+router.get('/blacklist/:id',function (req,res,next) {
+    BlackList.isExistBlackList(req.params.id,function (err,rows) {
+        if(err){
+            res.json(err);
+        }else {
+            res.json(rows);
+        }
+    });
+
+});
+
+router.delete('/blacklist/:id',function(req,res,next){
+
+    BlackList.deleteUserWithBlackList(req.params.id,function(err,count){
+
+        if(err)
+        {
+            res.json(err);
+        }
+        else
+        {
+            res.json(count);
+        }
+
+    });
+});
+
 router.get('/user/:id?',function(req,res,next){
 
     if(req.params.id){
@@ -40,15 +79,40 @@ router.get('/user/:id?',function(req,res,next){
     }
 });
 
-router.get('/blacklist/:id',function (req,res,next) {
-    BlackList.isExistBlackList(req.params.id,function (err,rows) {
-        if(err){
-            res.json(err);
-        }else {
-            res.json(rows);
-        }
-    });
 
+
+router.get('/user/:id?',function(req,res,next){
+
+    if(req.params.id){
+
+        User.getUserById(req.params.id,function(err,rows){
+
+            if(err)
+            {
+                res.json(err);
+            }
+            else{
+                res.json(rows);
+            }
+        });
+    }
+    else{
+
+
+
+        User.getAllUsers(function(err,rows){
+
+            if(err)
+            {
+                res.json(err);
+            }
+            else
+            {
+                res.json(rows);
+            }
+
+        });
+    }
 });
 
 router.post('/user/',function(req,res,next){
@@ -63,6 +127,7 @@ router.post('/user/',function(req,res,next){
         }
     });
 });
+
 router.delete('/user/:id',function(req,res,next){
 
     User.deleteUser(req.params.id,function(err,count){

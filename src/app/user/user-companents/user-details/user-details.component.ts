@@ -46,5 +46,6 @@ export class UserDetailsComponent {
         this.userService.updateUser(user).then((updatedUser: User) => {
             this.updateHandler(updatedUser);
         });
+        this.user = null;
     }
 }
