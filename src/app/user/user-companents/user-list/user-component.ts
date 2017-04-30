@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../user';
 import { UserService } from '../../user.service';
+import {BlackList} from "../../blacklist";
 
 @Component({
     selector: 'user-components',
@@ -15,15 +16,30 @@ import { UserService } from '../../user.service';
 export class UserComponent{
 
     users: User[];
+    blackListUser: User[];
     selectedUser: User;
 
 
     constructor(private userService: UserService){}
 
     ngOnInit(){
+        let bl = [];
+        let us = [];
         this.userService.getAllUsers().
             then((users:User[])=>{
-            this.users = users;
+            users.forEach((user)=>{
+                this.userService.ExistsUser(user.id)
+                    .then((resp)=>{
+                    console.dir();
+                        if(resp[0].count>0){
+                           bl.push(user);
+                        }else {
+                          us.push(user);
+                        };
+                    });
+            this.blackListUser = bl;
+            this.users = us;
+            });
         });
     }
 
@@ -38,6 +54,7 @@ export class UserComponent{
     }
 
     createNewUser() {
+        console.log("create new User")
         var user: User = {
             login:'',
             name: '',
@@ -47,27 +64,21 @@ export class UserComponent{
         this.selectUser(user);
     }
 
-    deleteUser = (userId: number) => {
-        var idx = this.getIndexOfUser(userId);
-        if (idx !== -1) {
-            this.users.splice(idx, 1);
-            this.selectUser(null);
-        }
-        return this.users;
+    deleteUser = () => {
+        this.ngOnInit();
     }
 
-    addUser = (user: User) => {
-        this.users.push(user);
-        this.selectUser(user);
-        return this.users;
+    addUser = () => {
+        this.ngOnInit();
     }
 
-    updateUser = (user: User) => {
-        var idx = this.getIndexOfUser(user.id);
-        if (idx !== -1) {
-            this.users[idx] = user;
-            this.selectUser(user);
-        }
-        return this.users;
+    updateUser = () => {
+        this.ngOnInit();
+    }
+
+    deleteUserWithBlackList(userId: number): void {
+        this.userService.deleteUser(userId).then((deletedUserId: number) => {
+            this.ngOnInit();
+        });
     }
 }

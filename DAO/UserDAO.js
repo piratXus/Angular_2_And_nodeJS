@@ -22,8 +22,17 @@ var User = {
     },
 
     updateUser: function (id,User,callback) {
-        return db.query("UPDATE user set name = ?,  surname = ? WHERE id = ?",[User.name,User.surname,id],callback);
+        return db.query("UPDATE users set name = ?,  surname = ? WHERE id = ?",[User.name,User.surname,id],callback);
+    },
+
+    isExistBlackList: function (id,callback) {
+        return db.query("SELECT exists( select * FROM users WHERE id = ?);",[id],callback)
+    },
+
+    addUserInBlackList: function (id,callback) {
+        return db.query("INSERT INTO blacklist(idUser) VALUE (?)",[id],callback);
     }
+
 };
 
 module.exports = User;

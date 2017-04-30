@@ -1,14 +1,14 @@
 <div *ngIf="user" class="row">
-    <div class="col-md-12">
-        <h2 *ngIf="user.id">Contact Details</h2>
-        <h2 *ngIf="!user.id">New User</h2>
+    <div class="col-md-10">
+        <h1 *ngIf="user.id">User edit</h1>
+        <h1 *ngIf="!user.id">New User</h1>
     </div>
 </div>
-<div *ngIf="user" class="row">
+<div *ngIf="user" class="row my-background" style="max-width: 90%">
     <form class="col-md-12">
         <div class="form-group">
-            <label for="user-login">Login</label>
-            <input class="form-control" name="user-login" [(ngModel)]="user.login" placeholder="Login"/>
+            <label for="user-login" *ngIf = "!user.id">Login</label>
+            <input class="form-control" *ngIf = "!user.id" name="user-login" [(ngModel)]="user.login" placeholder="Login"/>
         </div>
         <div class="form-group">
             <label for="user-name">Name</label>
@@ -20,7 +20,7 @@
         </div>
 
         <button class="btn btn-primary" *ngIf="!user.id" (click)="createUser(user)">Create</button>
-        <!--<button class="btn btn-info" *ngIf="user.id" (click)="updateContact(user)">Update</button>-->
-        <!--<button class="btn btn-danger" *ngIf="user.id" (click)="deleteContact(user.id)">Delete</button>-->
+        <button class="btn btn-info" *ngIf="user.id" (click)="updateUser(user)">Update</button>
+        <button class="btn btn-danger" *ngIf="user.id" (click)="deleteUser(user.id)">Delete</button>
     </form>
 </div>

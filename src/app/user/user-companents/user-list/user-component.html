@@ -2,39 +2,43 @@
 <div class="my-background">
     <div class="row">
 
-        <div class="col-md-6" style="max-height: 500px; min-height: 500px; overflow: auto; padding-left: 60px">
+        <div class="col-md-6"  style = "padding-left: 60px">
             <h1 class="title">User</h1>
-            <table class="table" style="background-color: white;padding-right: 100px ">
-                <thead class="thead-inverse">
-                <tr style="background-color: white; ">
-                    <th>login</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th width="210">Options</th>
-                </tr>
-                </thead>
+            <div style="max-height: 400px; min-height: 400px; overflow: auto;">
+                <table class="table" style=" background-color: white;padding-right: 100px ">
+                    <thead class="thead-inverse">
+                    <tr style="background-color: white; ">
+                        <th>login</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th width="210">Options   <button class="btn btn-warning" (click)="createNewUser()">New user</button>  </th>
+                    </tr>
+                    </thead>
 
-                <tbody>
+                    <tbody>
 
-                <tr *ngFor = " let user of users"
-                    (click)="selectUser(user)"
-                    [class.active]="user === selectedUser">
-                    <td>{{user.login}}</td>
-                    <td>{{user.name}}</td>
-                    <td>{{user.surname}}</td>
+                    <tr *ngFor = " let user of users">
+                        <td>{{user.login}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.surname}}</td>
 
-                    <td>
-                        <button class="btn btn-primary" >Edit</button>
-                        <button class="btn btn-danger" > Add to black list</button>
-                    </td>
-                </tr>
+                        <td>
+                            <button class="btn btn-primary"
+                                    (click)="selectUser(user)"
+                                    [class.active]="user === selectedUser">Edit</button>
+                            <button class="btn btn-danger" > Add to black list</button>
+                        </td>
+                    </tr>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
 
-        <div class="col-md-3" style="max-height: 500px; min-height: 500px; overflow: auto;">
+        <div class="col-md-3" style="max-height: 600px; min-height: 500px">
             <h1 class="title">Black List</h1>
+            <div style="max-height: 400px; min-height: 400px; overflow: auto;">
             <table class="table" style="background-color: white;padding-right: 100px ">
                 <thead class="thead-inverse">
                 <tr style="background-color: white; ">
@@ -44,24 +48,26 @@
 
                 <tbody>
 
-                <tr *ngFor = " let user of users">
+                <tr *ngFor = " let user of blackListUser">
                     <td>{{user.login}}</td>
                     <td>
-                        <button class="btn btn-success">Delete</button>
+                        <button class="btn btn-success" >Delete</button>
                     </td>
                 </tr>
 
 
                 </tbody>
             </table>
+            </div>
         </div>
 
         <div class="col-md-3">
-            <h1>Create user</h1>
-            <button class="btn btn-warning" (click)="createNewUser()">Create new user</button>
             <user-details
                     [user]="selectedUser"
-                    [createHandler]="addUser">
+                    [createHandler]="addUser"
+                    [deleteHandler]="deleteUser"
+                    [updateHandler]="updateUser"
+            >
             </user-details>
         </div>
 

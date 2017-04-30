@@ -4,8 +4,9 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../DAO/UserDAO');
+var BlackList = require('../DAO/BlackListDAO');
 
-router.get('/:id?',function(req,res,next){
+router.get('/user/:id?',function(req,res,next){
 
     if(req.params.id){
 
@@ -22,6 +23,8 @@ router.get('/:id?',function(req,res,next){
     }
     else{
 
+
+
         User.getAllUsers(function(err,rows){
 
             if(err)
@@ -37,7 +40,18 @@ router.get('/:id?',function(req,res,next){
     }
 });
 
-router.post('/',function(req,res,next){
+router.get('/blacklist/:id',function (req,res,next) {
+    BlackList.isExistBlackList(req.params.id,function (err,rows) {
+        if(err){
+            res.json(err);
+        }else {
+            res.json(rows);
+        }
+    });
+
+});
+
+router.post('/user/',function(req,res,next){
 
     User.addUser(req.body,function(err,count){
         if(err)
@@ -49,7 +63,7 @@ router.post('/',function(req,res,next){
         }
     });
 });
-router.delete('/:id',function(req,res,next){
+router.delete('/user/:id',function(req,res,next){
 
     User.deleteUser(req.params.id,function(err,count){
 
@@ -64,7 +78,7 @@ router.delete('/:id',function(req,res,next){
 
     });
 });
-router.put('/:id',function(req,res,next){
+router.put('/user/:id',function(req,res,next){
 
     User.updateUser(req.params.id,req.body,function(err,rows){
 
