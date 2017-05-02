@@ -15,7 +15,7 @@ import { Modal } from 'angular2-modal/plugins/bootstrap';
 })
 
 export class UserComponent{
-    showDialog:boolean;
+    showUserDetails:boolean;
     users: User[];
     blackListUser: User[];
     allUser: User[];
@@ -24,6 +24,7 @@ export class UserComponent{
 
     constructor(private userService: UserService,overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal){
         overlay.defaultViewContainer = vcRef;
+        this.showUserDetails = false;
     }
 
     ngOnInit(){
@@ -56,17 +57,17 @@ export class UserComponent{
 
     onClick(user:User) {
         this.selectUser(user);
-        if(this.blackListUser.indexOf(user)==0){
+        if(this.blackListUser.indexOf(user)<0){
             this.modal.alert()
                 .showClose(true)
                 .title('User details')
-                .body('<div><label>User is banned</label></div>')
+                .body('<div><label>Name:'+this.selectedUser.name+'</label></div><div><label>Surname:'+this.selectedUser.surname+'</l;6abel></div>')
                 .open();
         }else{
             this.modal.alert()
                 .showClose(true)
                 .title('User details')
-                .body('<div><label>Name:'+this.selectedUser.name+'</label></div><div><label>Surname:'+this.selectedUser.surname+'</label></div> <div> input<input name="user-name" placeholder="Name"/></div>>')
+                .body('<div><label>User is banned</label></div>')
                 .open();
         }
 
@@ -78,8 +79,16 @@ export class UserComponent{
         this.selectUserForBlackList = user;
     }
 
+    editUser(user:User){
+        console.dir(user);
+        console.dir(this.showUserDetails);
+        this.showUserDetails = true;
+        console.dir(this.showUserDetails);
+        this.selectUser(user);
+    }
+
     createNewUser() {
-        console.log("create new User")
+        this.showUserDetails = true;
         var user: User = {
             login:'',
             name: '',
@@ -102,10 +111,18 @@ export class UserComponent{
     }
 
     addUserInBlackList(user:User) {
-        this.selectUserForBlackList = user;
-        this.userService.addUserInBlackList(this.selectUserForBlackList).then(() => {
-            this.ngOnInit();
-        });
+        if(this.blackListUser.indexOf(user)<0){
+            this.userService.addUserInBlackList(user).then(() => {
+                this.ngOnInit();
+            });
+        }else {
+            this.modal.alert()
+                .showClose(true)
+                .title('User details')
+                .body('<div><label>This is user is banned</label></div>')
+                .open();
+        }
+
     }
 
     deleteUserWithBlackList(userId: number): void {

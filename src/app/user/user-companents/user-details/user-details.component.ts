@@ -4,6 +4,8 @@
 import { Component, Input } from '@angular/core';
 import { User } from '../../user';
 import { UserService } from '../../user.service';
+import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+import {ImportResolver} from "@angular/compiler";
 
 @Component({
     selector: 'user-details',
@@ -12,8 +14,12 @@ import { UserService } from '../../user.service';
 })
 
 export class UserDetailsComponent {
+
     @Input()
     user: User;
+
+    @Input()
+    showUserDetails: boolean;
 
     @Input()
     createHandler: Function;
@@ -24,28 +30,46 @@ export class UserDetailsComponent {
     @Input()
     updateHandler: Function;
 
-    constructor (private userService: UserService) {}
 
-    createUser(user: User) {
+
+
+
+
+    constructor (private userService: UserService) {
+
+    }
+
+
+
+    createUser() {
+
+
         console.log("user-details");
-        console.dir(user);
-
-        this.userService.createUser(user).then(() => {
+        console.dir(this.user);
+        this.userService.createUser(this.user).then(() => {
             this.createHandler();
         });
         this.user = null;
+        this.showUserDetails = false;
     }
     deleteUser(userId: number): void {
         this.userService.deleteUser(userId).then((deletedUserId: number) => {
             this.deleteHandler(deletedUserId);
         });
-        this.user = null;
+
     }
 
-    updateUser(user: User): void {
-        this.userService.updateUser(user).then((updatedUser: User) => {
+
+    updateUser(): void {
+
+        this.userService.updateUser(this.user).then((updatedUser: User) => {
             this.updateHandler(updatedUser);
         });
         this.user = null;
+        this.showUserDetails = false;
+    }
+    submitted = false;
+    onSubmit():void{
+        this.submitted = true;
     }
 }

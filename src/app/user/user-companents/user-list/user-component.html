@@ -15,20 +15,17 @@
 
                     <tbody>
 
-                    <tr *ngFor = " let user of allUser"
-                        (click) = "onClick(user)"
-                        [class.active]="user === selectedUser"
-                        >
-
-                        <td>{{user.login}}</td>
+                    <tr *ngFor = " let user of allUser">
+                        <td (click) = "onClick(user)">{{user.login}}</td>
 
 
                         <td>
                             <button class="btn btn-primary"
-                                    (click)="selectUser(user)"
-                                    >Edit</button>
+                                    (click)="editUser(user)"
+                                    [class.active]="user === selectedUser">Edit</button>
                             <button class="btn btn-danger"
-                                    (click) = "addUserInBlackList(user)"> Add to black list</button>
+                                    (click) = "addUserInBlackList(user)"
+                                    [class.active]="user === selectedUser"> Add to black list</button>
                         </td>
                     </tr>
 
@@ -66,6 +63,7 @@
 
         <div class="col-md-3">
             <user-details
+                    [showUserDetails] = "showUserDetails"
                     [user]="selectedUser"
                     [createHandler]="addUser"
                     [deleteHandler]="deleteUser"
