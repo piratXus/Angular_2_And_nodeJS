@@ -1,10 +1,11 @@
 /**
  * Created by piratXus on 28.04.2017.
  */
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import { User } from '../../user';
 import { UserService } from '../../user.service';
-import {BlackList} from "../../blacklist";
+import { Overlay } from 'angular2-modal';
+import { Modal } from 'angular2-modal/plugins/bootstrap';
 
 @Component({
     selector: 'user-components',
@@ -14,14 +15,16 @@ import {BlackList} from "../../blacklist";
 })
 
 export class UserComponent{
-
+    showDialog:boolean;
     users: User[];
     blackListUser: User[];
+    allUser: User[];
     selectedUser: User;
     selectUserForBlackList: User;
 
-
-    constructor(private userService: UserService){}
+    constructor(private userService: UserService,overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal){
+        overlay.defaultViewContainer = vcRef;
+    }
 
     ngOnInit(){
         let bl = [];
@@ -41,6 +44,7 @@ export class UserComponent{
             this.blackListUser = bl;
             this.users = us;
             });
+            this.allUser = users;
         });
     }
 
@@ -50,6 +54,23 @@ export class UserComponent{
         });
     }
 
+    onClick(user:User) {
+        this.selectUser(user);
+        if(this.blackListUser.indexOf(user)==0){
+            this.modal.alert()
+                .showClose(true)
+                .title('User details')
+                .body('<div><label>User is banned</label></div>')
+                .open();
+        }else{
+            this.modal.alert()
+                .showClose(true)
+                .title('User details')
+                .body('<div><label>Name:'+this.selectedUser.name+'</label></div><div><label>Surname:'+this.selectedUser.surname+'</label></div> <div> input<input name="user-name" placeholder="Name"/></div>>')
+                .open();
+        }
+
+    }
 
 
     selectUser(user: User) {
