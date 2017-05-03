@@ -4,14 +4,15 @@
 import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import { User } from '../../user';
 import { UserService } from '../../user.service';
-import { Overlay } from 'angular2-modal';
-import { Modal } from 'angular2-modal/plugins/bootstrap';
+import { Overlay, overlayConfigFactory } from 'angular2-modal';
+import { Modal , BSModalContext  } from 'angular2-modal/plugins/bootstrap';
+import { UserDialogContext, UserModal} from '../user-dialog/user-dialog'
 
 @Component({
     selector: 'user-components',
     templateUrl: './user-component.html',
     styleUrls: ['./user-style.css'],
-    providers: [UserService]
+    providers: [UserService, Modal]
 })
 
 export class UserComponent{
@@ -30,6 +31,7 @@ export class UserComponent{
     ngOnInit(){
         let bl = [];
         let us = [];
+        this.showUserDetails = false;
         this.userService.getAllUsers().
             then((users:User[])=>{
             users.forEach((user)=>{
@@ -58,11 +60,7 @@ export class UserComponent{
     onClick(user:User) {
         this.selectUser(user);
         if(this.blackListUser.indexOf(user)<0){
-            this.modal.alert()
-                .showClose(true)
-                .title('User details')
-                .body('<div><label>Name:'+this.selectedUser.name+'</label></div><div><label>Surname:'+this.selectedUser.surname+'</l;6abel></div>')
-                .open();
+            this.userDisplay(user);
         }else{
             this.modal.alert()
                 .showClose(true)
@@ -126,8 +124,13 @@ export class UserComponent{
     }
 
     deleteUserWithBlackList(userId: number): void {
+        console.dir(userId);
         this.userService.deleteUserWithlackList(userId).then(() => {
             this.ngOnInit();
         });
+    }
+
+    userDisplay(user:User){
+        return this.modal.open(UserModal,  overlayConfigFactory({ selectUser: user }, BSModalContext));
     }
 }

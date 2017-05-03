@@ -53,6 +53,7 @@ export class UserDetailsComponent {
         this.showUserDetails = false;
     }
     deleteUser(userId: number): void {
+        console.dir(userId);
         this.userService.deleteUser(userId).then((deletedUserId: number) => {
             this.deleteHandler(deletedUserId);
         });
