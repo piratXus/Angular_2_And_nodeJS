@@ -1,19 +1,22 @@
 <div class="container-fluid custom-modal-container">
     <div class="row custom-modal-header">
         <div class="col-sm-12">
-            <h1>A Custom modal design</h1>
+            <h1>User details</h1>
         </div>
     </div>
     <div class="row" [ngClass]="{'myclass' : shouldUseMyClass}">
         <div class="col-xs-12">
             <div class="jumbotron">
-                <h1>Do the math to quit:</h1>
-                Login:
-                <input type="text" [(ngModel)] = "context.selectUser.login"/>
-                Name:
-                <input type="text" [(ngModel)] = "context.selectUser.name"/>
-                <span>What is the sum?</span>
-                <input class="form-control" type="text" #answer (keyup)="onKeyUp(answer.value)" autofocus>
+                <h1>{{context.selectedUser.login}}</h1>
+                <div>
+                    <label>Name:</label>
+                    <input type="text" [(ngModel)] = "context.selectUser.name"/>
+                </div>
+                <div>
+                    <label>Surname:</label>
+                    <input type="text" [(ngModel)] = "context.selectUser.surname"/>
+                </div>
+                <button class="btn btn-primary"  (click)="onKeyUp()">Close</button>
             </div>
         </div>
     </div>

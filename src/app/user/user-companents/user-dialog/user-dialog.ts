@@ -20,16 +20,16 @@ export class UserDialogContext extends BSModalContext {
 export class UserModal implements CloseGuard, ModalComponent<UserDialogContext> {
     context: UserDialogContext;
 
-    public wrongAnswer: boolean;
+    public showWindiow: boolean;
 
     constructor(public dialog: DialogRef<UserDialogContext>) {
         this.context = dialog.context;
-        this.wrongAnswer = true;
+        this.showWindiow = true;
         dialog.setCloseGuard(this);
     }
 
-    onKeyUp(value) {
-        this.wrongAnswer = value != 5;
+    onKeyUp() {
+        this.showWindiow = false;
         this.dialog.close();
     }
 
@@ -39,6 +39,6 @@ export class UserModal implements CloseGuard, ModalComponent<UserDialogContext> 
     }
 
     beforeClose(): boolean {
-        return this.wrongAnswer;
+        return this.showWindiow;
     }
 }
