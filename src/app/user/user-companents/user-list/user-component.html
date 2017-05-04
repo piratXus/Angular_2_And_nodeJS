@@ -9,7 +9,6 @@
                     <thead class="thead-inverse">
                     <tr style="background-color: white; ">
                         <th>login</th>
-                        <th width="210">Options   <button class="btn btn-warning" (click)="createNewUser()">New user</button>  </th>
                     </tr>
                     </thead>
 
@@ -17,19 +16,12 @@
 
                     <tr *ngFor = " let user of allUser">
                         <td (click) = "onClick(user)">{{user.login}}</td>
-
-
-                        <td>
-                            <button class="btn btn-danger"
-                                    (click) = "addUserInBlackList(user)"
-                                    [class.active]="user === selectedUser"> Add to black list</button>
-                        </td>
                     </tr>
 
                     </tbody>
                 </table>
+                <button class="btn btn-warning" (click)="createNewUser()">New user</button>
             </div>
-
         </div>
 
 

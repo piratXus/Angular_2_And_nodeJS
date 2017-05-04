@@ -6,16 +6,26 @@
             <thead class="thead-inverse">
             <tr style="background-color: white; ">
                 <th>login</th>
+                <th width="210">Is banned</th>
             </tr>
             </thead>
 
             <tbody>
 
-            <tr *ngFor = " let user of blackListUser">
-                <td>{{user.login}}</td>
+            <tr *ngFor = " let blackUser of blackListUser">
+                <td>{{blackUser.user.login}}</td>
+
                 <td>
-                    <button class="btn btn-success"
-                            (click) = "deleteUserWithBlackList(user.id)">Delete</button>
+                    <switch [status]="!blackUser.status"
+                            onText="no"
+                            offText="yes"
+                            onColor="green"
+                            offColor="red"
+                            size = "small"
+                            (click)="switchOptions(blackUser)"
+                            ></switch>
+                    <!--<button class="btn btn-success"-->
+                            <!--(click) = "deleteUserWithBlackList(user.id)">Delete</button>-->
                 </td>
             </tr>
 

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { RouterModule, Routes } from '@angular/router';
+import { SwitchComponent } from 'angular2-bootstrap-switch/components';
 
 
 import { AppComponent } from './app.component';
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     UserComponent,
     UserDetailsComponent,
     UserModal,
-    BlackListComponent
+    BlackListComponent,
+    SwitchComponent
 
   ],
 
@@ -34,7 +36,7 @@ const appRoutes: Routes = [
     HttpModule,
     ModalModule.forRoot(),
     BootstrapModalModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
 
   providers: [],

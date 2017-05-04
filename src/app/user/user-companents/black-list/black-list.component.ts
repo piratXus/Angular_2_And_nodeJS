@@ -4,6 +4,7 @@
 import {Component} from '@angular/core';
 import { User } from '../../user';
 import { UserService } from '../../user.service';
+import { BlackList } from '../../blacklist'
 
 @Component({
     selector: 'black-list',
@@ -12,35 +13,48 @@ import { UserService } from '../../user.service';
     providers: [UserService]
 })
 
+
 export class BlackListComponent{
     users: User[];
-    blackListUser: User[];
+    blackListUser: BlackList[];
     selectedUser: User;
-    selectUserForBlackList: User;
+    selectUserForBlackList: BlackList;
+    valueSwitch: boolean;
 
 
     constructor(private userService: UserService){
-
+        this.valueSwitch = false;
     }
 
     ngOnInit(){
-        let bl = [];
-        let us = [];
+        let bl = []
+        let status = false;
         this.userService.getAllUsers().
         then((users:User[])=>{
             users.forEach((user)=>{
                 this.userService.ExistsUser(user.id)
                     .then((resp)=>{
-                        console.dir();
+                        let blackUser = new BlackList();
                         if(resp[0].count>0){
-                            bl.push(user);
+                            status = true;
+                            blackUser.user = user;
+                            blackUser.status = status;
+                            bl.push(blackUser);
+                            console.log("is banned");
+                            console.dir(bl);
                         }else {
-                            us.push(user);
+                           status = false;
+                            blackUser.user = user;
+                            blackUser.status = status;
+                            bl.push(blackUser);
+                            console.log("no banned")
+                            console.dir(bl)
                         };
-                    });
+
+                });
                 this.blackListUser = bl;
-                this.users = us;
             });
+            console.dir(this.blackListUser);
         });
     }
 
@@ -50,12 +64,25 @@ export class BlackListComponent{
         });
     }
 
+    switchOptions(user: BlackList){
+        console.dir(user);
 
-    selectUser(user: User) {
-        this.selectedUser = user;
-        this.selectUserForBlackList = user;
+        if(user.status){
+            console.log("deleted");
+            this.deleteUserWithBlackList(user.user.id);
+            user.status = !user.status;
+        }else {
+            this.addUserInBlackList(user.user);
+            user.status = !user.status;
+        }
     }
 
+    addUserInBlackList(user: User) {
+            this.userService.addUserInBlackList(user).then(() => {
+                this.ngOnInit();
+            });
+
+    }
 
     deleteUserWithBlackList(userId: number): void {
         console.dir(userId);
