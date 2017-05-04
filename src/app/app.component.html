@@ -1,3 +1,11 @@
 <div class="container">
-  <user-components></user-components>
+  <div class="my-background">
+    <nav class="navbar navbar-default">
+      <ul class="nav navbar-nav">
+        <li> <a routerLink="/" routerLinkActive="active">Users</a></li>
+        <li><a routerLink="/black-list" routerLinkActive="active">Black list</a></li>
+      </ul>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
 </div>

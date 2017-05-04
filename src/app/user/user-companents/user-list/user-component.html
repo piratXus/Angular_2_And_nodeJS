@@ -1,8 +1,8 @@
 
-<div class="my-background">
-    <div class="row">
 
-        <div class="col-md-6"  style = "padding-left: 60px">
+
+    <div class="row">
+        <div class="col-md-5 col-md-offset-3"  style = "padding-left: 60px">
             <h1 class="title">User</h1>
             <div style="max-height: 400px; min-height: 400px; overflow: auto;">
                 <table class="table" style=" background-color: white;padding-right: 100px ">
@@ -32,31 +32,6 @@
 
         </div>
 
-        <div class="col-md-3" style="max-height: 600px; min-height: 500px">
-            <h1 class="title">Black List</h1>
-            <div style="max-height: 400px; min-height: 400px; overflow: auto;">
-            <table class="table" style="background-color: white;padding-right: 100px ">
-                <thead class="thead-inverse">
-                <tr style="background-color: white; ">
-                    <th>login</th>
-                </tr>
-                </thead>
-
-                <tbody>
-
-                <tr *ngFor = " let user of blackListUser">
-                    <td>{{user.login}}</td>
-                    <td>
-                        <button class="btn btn-success"
-                                (click) = "deleteUserWithBlackList(user.id)">Delete</button>
-                    </td>
-                </tr>
-
-
-                </tbody>
-            </table>
-            </div>
-        </div>
 
         <div class="col-md-3">
             <user-details
@@ -67,9 +42,6 @@
             </user-details>
         </div>
 
-        <!--<div><button class = "btn btn-success" (click) = "userDisplay()">click</button></div>-->
-        <!--<user-modal></user-modal>-->
     </div>
-</div>
 
 
