@@ -24,6 +24,9 @@ export class UserDetailsComponent {
     @Input()
     createHandler: Function;
 
+    @Input()
+    closeHandler: Function;
+
     newFormUser: FormGroup;
 
     fb: any;
@@ -41,6 +44,7 @@ export class UserDetailsComponent {
     }
 
     cancel(){
+        this.closeHandler();
         this.showUserDetails = false;
     }
 

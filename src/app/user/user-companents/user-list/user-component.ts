@@ -58,6 +58,8 @@ export class UserComponent{
         });
     }
 
+
+
     onClick(user:User) {
         this.selectUser(user);
         if(this.blackListUser.indexOf(user)<0){
@@ -98,6 +100,11 @@ export class UserComponent{
     }
 
     deleteUser = () => {
+        this.ngOnInit();
+    }
+
+
+    closeNewUser = () =>{
         this.ngOnInit();
     }
 

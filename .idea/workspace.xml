@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ed30e1b9-8e8f-4b34-a0cc-e7dfe2bd0f3f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.component.html" afterPath="$PROJECT_DIR$/src/app/app.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.module.ts" afterPath="$PROJECT_DIR$/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/user/user-companents/black-list/black-list.component.ts" afterPath="$PROJECT_DIR$/src/app/user/user-companents/black-list/black-list.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.html" afterPath="$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.ts" afterPath="$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.html" afterPath="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.ts" afterPath="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-style.css" afterPath="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,11 +20,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user-component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user-component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="95" column="40" lean-forward="false" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+            <state relative-caret-position="583">
+              <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
               <folding>
                 <element signature="e#46#123#0" expanded="true" />
               </folding>
@@ -40,8 +35,8 @@
       <file leaf-file-name="user.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/user/user.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="23" column="42" lean-forward="false" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+            <state relative-caret-position="272">
+              <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -60,8 +55,8 @@
       <file leaf-file-name="user-component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+            <state relative-caret-position="595">
+              <caret line="35" column="33" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -72,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-details.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user-details.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+            <state relative-caret-position="923">
+              <caret line="61" column="23" lean-forward="true" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
               <folding>
                 <element signature="e#46#95#0" expanded="true" />
               </folding>
@@ -202,13 +197,13 @@
         <option value="$PROJECT_DIR$/src/app/user/blacklist.ts" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-style.css" />
-        <option value="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.html" />
         <option value="$PROJECT_DIR$/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/src/app/user/user-companents/black-list/black-list.html" />
         <option value="$PROJECT_DIR$/src/app/user/user-companents/black-list/black-list.component.ts" />
         <option value="$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.html" />
-        <option value="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.ts" />
+        <option value="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.html" />
         <option value="$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.ts" />
       </list>
     </option>
   </component>
@@ -536,7 +531,7 @@
       <workItem from="1493710151729" duration="18551000" />
       <workItem from="1493743042519" duration="752000" />
       <workItem from="1493806164720" duration="10358000" />
-      <workItem from="1493884010628" duration="22762000" />
+      <workItem from="1493884010628" duration="23248000" />
     </task>
     <task id="LOCAL-00001" summary="add front and angular2-cli">
       <created>1493388800504</created>
@@ -615,11 +610,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493903275675</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add validate">
+      <created>1493908784771</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1493908784771</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140810000" />
+    <option name="totallyTimeSpent" value="141296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1040" extended-state="6" />
@@ -661,18 +663,11 @@
     <MESSAGE value="modal window full work" />
     <MESSAGE value="added routing" />
     <MESSAGE value="add switcher in black list" />
-    <option name="LAST_COMMIT_MESSAGE" value="add switcher in black list" />
+    <MESSAGE value="add validate" />
+    <option name="LAST_COMMIT_MESSAGE" value="add validate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.ts</url>
-          <line>3</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
@@ -931,14 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -973,18 +960,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/user/user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="23" column="42" lean-forward="false" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+        <state relative-caret-position="272">
+          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        <state relative-caret-position="595">
+          <caret line="35" column="33" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="33" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -994,30 +989,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details-style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        <state relative-caret-position="34">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="95" column="40" lean-forward="false" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
-          <folding>
-            <element signature="e#46#123#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-details/user-details.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+        <state relative-caret-position="923">
+          <caret line="61" column="23" lean-forward="true" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
           <folding>
             <element signature="e#46#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/user/user-companents/user-list/user-component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+          <folding>
+            <element signature="e#46#123#0" expanded="true" />
           </folding>
         </state>
       </provider>
