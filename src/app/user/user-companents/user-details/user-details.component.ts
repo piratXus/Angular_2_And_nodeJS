@@ -24,26 +24,11 @@ export class UserDetailsComponent {
     @Input()
     createHandler: Function;
 
-    @Input()
-    deleteHandler: Function;
-
-    @Input()
-    updateHandler: Function;
-
-
-
-
-
-
     constructor (private userService: UserService) {
 
     }
 
-
-
     createUser() {
-
-
         console.log("user-details");
         console.dir(this.user);
         this.userService.createUser(this.user).then(() => {
@@ -52,25 +37,5 @@ export class UserDetailsComponent {
         this.user = null;
         this.showUserDetails = false;
     }
-    deleteUser(userId: number): void {
-        console.dir(userId);
-        this.userService.deleteUser(userId).then((deletedUserId: number) => {
-            this.deleteHandler(deletedUserId);
-        });
 
-    }
-
-
-    updateUser(): void {
-
-        this.userService.updateUser(this.user).then((updatedUser: User) => {
-            this.updateHandler(updatedUser);
-        });
-        this.user = null;
-        this.showUserDetails = false;
-    }
-    submitted = false;
-    onSubmit():void{
-        this.submitted = true;
-    }
 }

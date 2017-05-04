@@ -1,7 +1,6 @@
 
 <div *ngIf="showUserDetails" class="row">
     <div class="col-md-10">
-        <h1 *ngIf="user.id">{{user.login}}</h1>
         <h1 *ngIf="!user.id">New User</h1>
     </div>
 </div>
@@ -21,7 +20,5 @@
         </div>
 
         <button class="btn btn-primary" *ngIf="!user.id" (click)="createUser(user)">Create</button>
-        <button class="btn btn-info" *ngIf="user.id" (click)="updateUser(user)">Update</button>
-        <button class="btn btn-danger" *ngIf="user.id" (click)="deleteUser(user.id)">Delete</button>
     </form>
 </div>

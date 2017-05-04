@@ -7,7 +7,7 @@
     <div class="row" [ngClass]="{'myclass' : shouldUseMyClass}">
         <div class="col-xs-12">
             <div class="jumbotron">
-                <h1>{{context.selectedUser.login}}</h1>
+                <h3>Edit user: {{context.selectUser.login}}</h3>
                 <div>
                     <label>Name:</label>
                     <input type="text" [(ngModel)] = "context.selectUser.name"/>
@@ -16,6 +16,8 @@
                     <label>Surname:</label>
                     <input type="text" [(ngModel)] = "context.selectUser.surname"/>
                 </div>
+                <button class="btn btn-info" (click)="updateUser(context.selectUser)">Update</button>
+                <button class="btn btn-danger" (click)="deleteUser(context.selectUser)">Delete</button>
                 <button class="btn btn-primary"  (click)="onKeyUp()">Close</button>
             </div>
         </div>

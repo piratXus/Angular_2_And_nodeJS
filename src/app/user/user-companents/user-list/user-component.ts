@@ -23,6 +23,7 @@ export class UserComponent{
     selectedUser: User;
     selectUserForBlackList: User;
 
+
     constructor(private userService: UserService,overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal){
         overlay.defaultViewContainer = vcRef;
         this.showUserDetails = false;
@@ -131,6 +132,6 @@ export class UserComponent{
     }
 
     userDisplay(user:User){
-        return this.modal.open(UserModal,  overlayConfigFactory({ selectUser: user }, BSModalContext));
+        return this.modal.open(UserModal,  overlayConfigFactory({ selectUser: user, userList: this.allUser }, BSModalContext));
     }
 }
