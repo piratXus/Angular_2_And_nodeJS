@@ -18,7 +18,6 @@ export class BlackListComponent{
     users: User[];
     blackListUser: BlackList[];
     selectedUser: User;
-    selectUserForBlackList: BlackList;
     valueSwitch: boolean;
 
 

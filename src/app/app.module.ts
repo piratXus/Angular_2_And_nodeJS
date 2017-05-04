@@ -26,7 +26,7 @@ const appRoutes: Routes = [
     UserDetailsComponent,
     UserModal,
     BlackListComponent,
-    SwitchComponent
+    SwitchComponent,
 
   ],
 
@@ -37,6 +37,7 @@ const appRoutes: Routes = [
     ModalModule.forRoot(),
     BootstrapModalModule,
     RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule
   ],
 
   providers: [],

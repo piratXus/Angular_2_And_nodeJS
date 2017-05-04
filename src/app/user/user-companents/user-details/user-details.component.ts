@@ -24,18 +24,39 @@ export class UserDetailsComponent {
     @Input()
     createHandler: Function;
 
-    constructor (private userService: UserService) {
+    newFormUser: FormGroup;
 
+    fb: any;
+    constructor (private userService: UserService, fb: FormBuilder) {
+        this.fb = fb;
+        this.ngOnInit();
+    }
+
+    ngOnInit(){
+        this.newFormUser = this.fb.group({
+            login: [null,Validators.required],
+            name:[null,Validators.required],
+            surname:[null,Validators.required]
+        });
+    }
+
+    cancel(){
+        this.showUserDetails = false;
     }
 
     createUser() {
         console.log("user-details");
         console.dir(this.user);
+        this.user.login = this.newFormUser.value.login;
+        this.user.name = this.newFormUser.value.name;
+        this.user.surname = this.newFormUser.value.surname;
         this.userService.createUser(this.user).then(() => {
             this.createHandler();
         });
-        this.user = null;
-        this.showUserDetails = false;
-    }
 
+        this.user = null;
+       this.ngOnInit();
+        this.showUserDetails = false;
+
+    }
 }

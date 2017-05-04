@@ -8,14 +8,10 @@ li {
 
 }
 
-.background-table{
+.background-table {
     background-color: rgba(255, 255, 255, 1);
     border-radius: 10px;
 
-}
-.news-list-list {
-    margin: 15px;
-    padding: 15px;
 }
 
 .record {

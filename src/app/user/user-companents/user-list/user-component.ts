@@ -93,7 +93,7 @@ export class UserComponent{
             name: '',
             surname:''
         };
-
+        console.dir(this.showUserDetails);
         this.selectUser(user);
     }
 
