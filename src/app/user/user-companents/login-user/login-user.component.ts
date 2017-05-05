@@ -10,7 +10,8 @@ import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 
 @Component({
     selector: 'user-login',
-    templateUrl: './login.html',
+    templateUrl: './login-component.html',
+    providers: [UserService]
 })
 
 export class LoginComponent {
@@ -18,6 +19,5 @@ export class LoginComponent {
     constructor (private userService: UserService) {
         console.log("login")
     }
-
 
 }
