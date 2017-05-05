@@ -13,9 +13,11 @@ import { UserComponent } from './user/user-companents/user-list/user-component';
 import {UserDetailsComponent } from './user/user-companents/user-details/user-details.component'
 import {UserModal} from './user/user-companents/user-dialog/user-dialog'
 import {BlackListComponent} from './user/user-companents/black-list/black-list.component'
+import {LoginComponent} from './user/user-companents/login-user/login-component'
 
 const appRoutes: Routes = [
-  { path: '', component: UserComponent },
+  { path: '', component: LoginComponent },
+  { path: 'users', component: UserComponent },
   { path: 'black-list', component: BlackListComponent },
 ];
 
@@ -27,7 +29,7 @@ const appRoutes: Routes = [
     UserModal,
     BlackListComponent,
     SwitchComponent,
-
+    LoginComponent,
   ],
 
   imports: [

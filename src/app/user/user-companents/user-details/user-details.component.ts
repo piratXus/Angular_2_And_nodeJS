@@ -30,6 +30,7 @@ export class UserDetailsComponent {
     newFormUser: FormGroup;
 
     fb: any;
+
     constructor (private userService: UserService, fb: FormBuilder) {
         this.fb = fb;
         this.ngOnInit();

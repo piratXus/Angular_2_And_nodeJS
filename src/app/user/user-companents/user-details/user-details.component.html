@@ -7,16 +7,16 @@
 <div *ngIf="showUserDetails" class="row my-background" style="max-width: 90%">
     <form class="col-md-12" [formGroup] = "newFormUser">
         <div class="form-group">
-            <label for="user-login">Login</label>
+            <label >Login</label>
             <input class="form-control"  formControlName="login"
                    [formControl] = "newFormUser.controls['login']" placeholder="Login"/>
         </div>
         <div class="form-group">
-            <label for="user-name">Name</label>
+            <label >Name</label>
             <input class="form-control" formControlName="name" [formControl] = "newFormUser.controls['name']" placeholder="Name"/>
         </div>
         <div class="form-group">
-            <label for="user-surname">Surname</label>
+            <label >Surname</label>
             <input class="form-control" formControlName="surname" [formControl] = "newFormUser.controls['surname']" placeholder="Surname"/>
         </div>
 
