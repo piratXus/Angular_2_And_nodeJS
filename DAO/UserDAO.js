@@ -13,6 +13,10 @@ var User = {
       return db.query("SELECT * FROM users WHERE id = ?",[id],callback);
     },
 
+    getUserByLogin: function (login, callback) {
+        return db.query("SELECT * FROM  users WHERE login = ?",[login],callback);
+    },
+
     addUser: function (User,callback) {
         return db.query("INSERT INTO users(login,name,surname) VALUE (?,?,?)",[User.login,User.name,User.surname],callback);
     },
@@ -32,6 +36,7 @@ var User = {
     addUserInBlackList: function (id,callback) {
         return db.query("INSERT INTO blacklist(idUser) VALUE (?)",[id],callback);
     }
+
 
 };
 

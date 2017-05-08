@@ -38,7 +38,6 @@ export class UserComponent{
             users.forEach((user)=>{
                 this.userService.ExistsUser(user.id)
                     .then((resp)=>{
-                    console.dir();
                         if(resp[0].count>0){
                            bl.push(user);
                         }else {

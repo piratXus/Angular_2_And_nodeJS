@@ -34,7 +34,7 @@ foreign key(id_user) references Users(id)
 );
 
 insert into userBlackList.users(login,name,surname,password) value ("admin","admin","admin","admin");
-insert into userBlackList.users(logAin,name,surname,password) value ("user1","test1","first","user");
+insert into userBlackList.users(login,name,surname,password) value ("user1","test1","first","user");
 insert into userBlackList.users(login,name,surname,password) value ("user2","test2","second","user");
 insert into userBlackList.users(login,name,surname,password) value ("user3","test3","third","user");
 insert into userBlackList.users(login,name,surname,password) value ("user4","test4","fourth","user");
@@ -43,5 +43,9 @@ insert into userBlackList.roles(role) value ("admin");
 insert into userBlackList.roles(role) value ("user");
 
 insert into userBlackList.role_has_user(id_user,id_role) value (1,1);
+insert into userBlackList.role_has_user(id_user,id_role) value (2,2);
+insert into userBlackList.role_has_user(id_user,id_role) value (3,2);
+insert into userBlackList.role_has_user(id_user,id_role) value (4,2);
+insert into userBlackList.role_has_user(id_user,id_role) value (5,2);
 
 insert into userBlackList.blacklist(id_user) value (3);
