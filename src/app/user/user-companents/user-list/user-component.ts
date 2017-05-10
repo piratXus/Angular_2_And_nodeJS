@@ -8,12 +8,12 @@ import { Overlay, overlayConfigFactory } from 'angular2-modal';
 import { Modal , BSModalContext  } from 'angular2-modal/plugins/bootstrap';
 import { UserDialogContext, UserModal} from '../user-dialog/user-dialog'
 import {AuthGuard}from '../authentication/auth.guard'
-
+import {AdminService} from '../authentication/admin.service'
 @Component({
     selector: 'user-components',
     templateUrl: './user-component.html',
     styleUrls: ['./user-style.css'],
-    providers: [UserService, Modal, AuthGuard]
+    providers: [UserService, Modal, AuthGuard,AdminService]
 })
 
 export class UserComponent{
@@ -25,12 +25,15 @@ export class UserComponent{
     selectUserForBlackList: User;
 
 
-    constructor(private userService: UserService,overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal){
+    constructor(private userService: UserService,overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal,
+                private adminService: AdminService){
         overlay.defaultViewContainer = vcRef;
         this.showUserDetails = false;
     }
 
     ngOnInit(){
+        console.log("ngOnInit");
+        this.adminService.isAdmin();
         let bl = [];
         let us = [];
         this.showUserDetails = false;

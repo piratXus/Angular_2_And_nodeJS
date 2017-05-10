@@ -7,7 +7,6 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { SwitchComponent } from 'angular2-bootstrap-switch/components';
 
-
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user-companents/user-list/user-component';
 import {UserDetailsComponent } from './user/user-companents/user-details/user-details.component'
@@ -21,7 +20,7 @@ const appRoutes: Routes = [
   { path: '', component: UserComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
   { path: 'black-list', component: BlackListComponent, canActivate: [AuthGuard]},
-  { path: 'logout', component: AppComponent}
+
 ];
 
 @NgModule({

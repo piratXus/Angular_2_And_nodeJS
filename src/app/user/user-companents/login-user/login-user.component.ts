@@ -10,7 +10,6 @@ import { AuthService } from '../authentication/auth.sevice';
 import { AuthGuard } from '../authentication/auth.guard'
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {UserLogin} from '../../userLogin';
-import {JwtHelper} from 'angular2-jwt/angular2-jwt';
 import {User} from "../../user";
 import { Router, CanActivate } from '@angular/router';
 /*interface UserLogin
@@ -29,7 +28,6 @@ export class LoginComponent {
     user: UserLogin;
     LoginForm: FormGroup;
     token = localStorage.getItem('id_token');
-    jwtHelper: JwtHelper = new JwtHelper();
 
     fb: any;
 
@@ -50,6 +48,7 @@ export class LoginComponent {
         this.user = this.LoginForm.value;
             this.auth.login(this.user).then(()=>{
             if(this.auth.loggedIn()){
+
                     console.log("get lockalstoreg")
                     this.router.navigateByUrl("/");
                 }
