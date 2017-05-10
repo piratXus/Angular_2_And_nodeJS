@@ -161,60 +161,30 @@ router.put('/user/:id',function(req,res,next){
 });
 
 
-router.post('/authentication',function (req,res,next) {
-    User.getUserByLogin(req.body.login,function (err, user) {
-        console.dir(user[0]);
-        if(err){throw  err};
 
-        if(user[0].login != req.body.login){
-            console.dir("login  requared");
-            res.json({ success: false, message: 'Authentication failed. User not found.' });
-        }else if(user[0].password !== req.body.password){
-            console.dir("password");
-            res.json({ success: false, message: 'Authentication failed. Wrong password.' });
-        }else {
-
-            var token = jwt.sign(user, app.get('superSecret'),{
-                expiresInMinutes: 1440
-            });
-            console.dir("token");
-            res.json({
-                success: true,
-                message: 'Enjoy your token!',
-                token: token
-            });
-        }
+function createToken(user) {
+    var secretKey = "token";
+    return jwt.sign(user, secretKey, {
+        expiresIn: 60 * 60 * 5
     });
-});
+}
 
-
-router.use(function(req, res, next) {
-
-    console.dir("lol");    // check header or url parameters or post parameters for token
-    var token = req.body.token;
-    // decode token
-    if (token) {
-        // verifies secret and checks exp
-        jwt.verify(token, app.get('superSecret'), function(err, decoded) {
-            if (err) {
-                return res.json({ success: false, message: 'Failed to authenticate token.' });
+    router.post('/authentication', function (req, res, next) {
+        User.getUserByLogin(req.body.login, function (err, user) {
+            if (!req.body.login || !req.body.password) {
+                return res.status(400).send("You must send the username and the password");
+            }
+            if (!user[0]) {
+                return res.status(401).send("The username is not existing");
+            }
+            if (user[0].password !== req.body.password) {
+                return res.status(401).send("The username or password don't match");
             } else {
-                // if everything is good, save to request for use in other routes
-                req.decoded = decoded;
-                next();
+                return res.status(201).send({
+                    id_token: createToken(user[0])
+                });
             }
         });
-
-    } else {
-
-        // if there is no token
-        // return an error
-        return res.status(403).send({
-            success: false,
-            message: 'No token provided.'
-        });
-
-    }
-});
+    });
 
 module.exports = router;
