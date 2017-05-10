@@ -11,6 +11,7 @@ import 'rxjs/add/operator/toPromise';
 export class UserService{
     private url = "http://localhost:3000/api/user";
     private usrBlackList = "http://localhost:3000/api/blacklist";
+    private roleUrl = "http://localhost:3000/api/role";
 
     constructor(private http: Http){};
 
@@ -56,6 +57,12 @@ export class UserService{
         return this.http.delete(this.usrBlackList+'/'+idUser).toPromise()
             .then(response => response.json() as String)
             .catch(this.handleError);
+    }
+
+    getRoleByUserId(id_user:number): Promise<number>{
+        return this.http.get(this.roleUrl+"/"+id_user).toPromise().
+        then(response => response.json() as String).
+        catch(this.handleError);
     }
 
     private handleError (error: any) {

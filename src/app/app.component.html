@@ -2,8 +2,9 @@
   <div class="my-background" style="min-height: 550px">
     <nav class="navbar navbar-default">
       <ul class="nav navbar-nav">
-        <li> <a routerLink="/" routerLinkActive="active">Users</a></li>
-        <li><a routerLink="/black-list" routerLinkActive="active">Black list</a></li>
+        <li> <a routerLink="/" routerLinkActive="active" *ngIf="authServ.loggedIn()">Users</a></li>
+        <li><a routerLink="/black-list" routerLinkActive="active" *ngIf="authServ.loggedIn()">Black list</a></li>
+        <li><a class = "coll-md-12" (click) = "authServ.logout()" *ngIf="authServ.loggedIn()">Logout</a> </li>
       </ul>
     </nav>
     <router-outlet></router-outlet>

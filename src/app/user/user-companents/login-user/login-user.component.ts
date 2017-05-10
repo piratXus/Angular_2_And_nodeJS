@@ -6,18 +6,54 @@
  */
 import { Component, Input } from '@angular/core';
 import { UserService } from '../../user.service';
+import { AuthService } from '../authentication/auth.sevice';
+import { AuthGuard } from '../authentication/auth.guard'
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+import {UserLogin} from '../../userLogin';
+import {JwtHelper} from 'angular2-jwt/angular2-jwt';
+import {User} from "../../user";
+import { Router, CanActivate } from '@angular/router';
+/*interface UserLogin
+{
+    login:string,
+    password:string
+};*/
 
 @Component({
     selector: 'user-login',
     templateUrl: './login-component.html',
-    providers: [UserService]
+    providers: [UserService,AuthService,AuthGuard]
 })
 
 export class LoginComponent {
+    user: UserLogin;
+    LoginForm: FormGroup;
+    token = localStorage.getItem('id_token');
+    jwtHelper: JwtHelper = new JwtHelper();
 
-    constructor (private userService: UserService) {
-        console.log("login")
+    fb: any;
+
+    constructor(private auth: AuthService,fb: FormBuilder,private router: Router) {
+        this.fb = fb;
+        this.ngOnInit();
+    }
+
+
+    ngOnInit(){
+        this.LoginForm = this.fb.group({
+            login: [null,Validators.required],
+            password:[null,Validators.required],
+        });
+    }
+
+    onLogin() {
+        this.user = this.LoginForm.value;
+            this.auth.login(this.user).then(()=>{
+            if(this.auth.loggedIn()){
+                    console.log("get lockalstoreg")
+                    this.router.navigateByUrl("/");
+                }
+            });
     }
 
 }

@@ -7,12 +7,13 @@ import { UserService } from '../../user.service';
 import { Overlay, overlayConfigFactory } from 'angular2-modal';
 import { Modal , BSModalContext  } from 'angular2-modal/plugins/bootstrap';
 import { UserDialogContext, UserModal} from '../user-dialog/user-dialog'
+import {AuthGuard}from '../authentication/auth.guard'
 
 @Component({
     selector: 'user-components',
     templateUrl: './user-component.html',
     styleUrls: ['./user-style.css'],
-    providers: [UserService, Modal]
+    providers: [UserService, Modal, AuthGuard]
 })
 
 export class UserComponent{

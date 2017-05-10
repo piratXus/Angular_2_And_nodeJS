@@ -7,6 +7,7 @@ var User = require('../DAO/UserDAO');
 var BlackList = require('../DAO/BlackListDAO');
 var jwt    = require('jsonwebtoken');
 var app = express();
+var Role = require('../DAO/RoleDAO');
 
 router.post('/blacklist',function(req,res,next){
     BlackList.addUserInBlackList(req.body,function(err,count){
@@ -160,7 +161,16 @@ router.put('/user/:id',function(req,res,next){
     });
 });
 
+router.get('/role/:id',function (req,res,next) {
+    Role.getRoleForUser(req.params.id,function (err,rows) {
+        if(err){
+            res.json(err);
+        }else {
+            res.json(rows);
+        }
+    });
 
+});
 
 function createToken(user) {
     var secretKey = "token";

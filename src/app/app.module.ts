@@ -14,11 +14,14 @@ import {UserDetailsComponent } from './user/user-companents/user-details/user-de
 import {UserModal} from './user/user-companents/user-dialog/user-dialog'
 import {BlackListComponent} from './user/user-companents/black-list/black-list.component'
 import {LoginComponent} from './user/user-companents/login-user/login-user.component'
+import {AuthService} from './user/user-companents/authentication/auth.sevice'
+import {AuthGuard} from './user/user-companents/authentication/auth.guard'
 
 const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'users', component: UserComponent },
-  { path: 'black-list', component: BlackListComponent },
+  { path: '', component: UserComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent},
+  { path: 'black-list', component: BlackListComponent, canActivate: [AuthGuard]},
+  { path: 'logout', component: AppComponent}
 ];
 
 @NgModule({
@@ -42,7 +45,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule
   ],
 
-  providers: [],
+  providers: [AuthGuard,AuthService],
   bootstrap: [AppComponent],
   entryComponents: [ UserModal ]
 })

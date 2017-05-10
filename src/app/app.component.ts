@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from './user/user-companents/authentication/auth.sevice'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['user/user-companents/user-list/user-style.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  authServ:AuthService;
+  constructor(private auth: AuthService){this.authServ = this.auth};
 }
