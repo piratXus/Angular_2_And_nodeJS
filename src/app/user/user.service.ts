@@ -61,7 +61,7 @@ export class UserService{
 
     getRoleByUserId(id_user:number): Promise<number>{
         return this.http.get(this.roleUrl+"/"+id_user).toPromise().
-        then(response => response.json() as String).
+        then(response => response.json()).
         catch(this.handleError);
     }
 

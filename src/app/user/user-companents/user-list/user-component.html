@@ -22,11 +22,9 @@
                 </table>
             </div>
             <div>
-                <button class="btn btn-warning" (click)="createNewUser()">New user</button>
+                <button class="btn btn-warning" *ngIf="admin.isAdmin()" (click)="createNewUser()">New user</button>
             </div>
-
         </div>
-
 
         <div class="col-md-3">
             <user-details

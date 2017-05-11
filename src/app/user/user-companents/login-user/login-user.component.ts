@@ -12,11 +12,7 @@ import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {UserLogin} from '../../userLogin';
 import {User} from "../../user";
 import { Router, CanActivate } from '@angular/router';
-/*interface UserLogin
-{
-    login:string,
-    password:string
-};*/
+
 
 @Component({
     selector: 'user-login',
@@ -48,8 +44,6 @@ export class LoginComponent {
         this.user = this.LoginForm.value;
             this.auth.login(this.user).then(()=>{
             if(this.auth.loggedIn()){
-
-                    console.log("get lockalstoreg")
                     this.router.navigateByUrl("/");
                 }
             });

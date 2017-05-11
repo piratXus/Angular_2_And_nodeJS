@@ -16,8 +16,8 @@
                     <label>Surname:</label>
                     <input type="text" [(ngModel)] = "context.selectUser.surname"/>
                 </div>
-                <button class="btn btn-info" (click)="updateUser(context.selectUser)">Update</button>
-                <button class="btn btn-danger" (click)="deleteUser(context.selectUser)">Delete</button>
+                <button class="btn btn-info" *ngIf="admin.isAdmin()" (click)="updateUser(context.selectUser)">Update</button>
+                <button class="btn btn-danger"  *ngIf="admin.isAdmin()" (click)="deleteUser(context.selectUser)">Delete</button>
                 <button class="btn btn-primary"  (click)="onKeyUp()">Close</button>
             </div>
         </div>

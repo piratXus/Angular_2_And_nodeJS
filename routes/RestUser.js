@@ -163,9 +163,11 @@ router.put('/user/:id',function(req,res,next){
 
 router.get('/role/:id',function (req,res,next) {
     Role.getRoleForUser(req.params.id,function (err,rows) {
+        console.dir("inside method");
         if(err){
             res.json(err);
         }else {
+            console.dir("resp");
             res.json(rows);
         }
     });

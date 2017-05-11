@@ -6,9 +6,9 @@ import { User } from '../../user';
 import { UserService } from '../../user.service';
 import { Overlay, overlayConfigFactory } from 'angular2-modal';
 import { Modal , BSModalContext  } from 'angular2-modal/plugins/bootstrap';
-import { UserDialogContext, UserModal} from '../user-dialog/user-dialog'
-import {AuthGuard}from '../authentication/auth.guard'
-import {AdminService} from '../authentication/admin.service'
+import { UserDialogContext, UserModal} from '../user-dialog/user-dialog';
+import {AuthGuard}from '../authentication/auth.guard';
+import {AdminService} from '../authentication/admin.service';
 @Component({
     selector: 'user-components',
     templateUrl: './user-component.html',
@@ -23,17 +23,16 @@ export class UserComponent{
     allUser: User[];
     selectedUser: User;
     selectUserForBlackList: User;
-
+    admin: AdminService;
 
     constructor(private userService: UserService,overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal,
                 private adminService: AdminService){
+        this.admin = this.adminService;
         overlay.defaultViewContainer = vcRef;
         this.showUserDetails = false;
     }
 
     ngOnInit(){
-        console.log("ngOnInit");
-        this.adminService.isAdmin();
         let bl = [];
         let us = [];
         this.showUserDetails = false;
@@ -65,6 +64,7 @@ export class UserComponent{
 
     onClick(user:User) {
         this.selectUser(user);
+        this.admin.isAdmin();
         if(this.blackListUser.indexOf(user)<0){
             this.userDisplay(user);
         }else{
@@ -76,7 +76,6 @@ export class UserComponent{
         }
 
     }
-
 
     selectUser(user: User) {
         this.selectedUser = user;

@@ -3,7 +3,7 @@
     <nav class="navbar navbar-default">
       <ul class="nav navbar-nav">
         <li> <a routerLink="/" routerLinkActive="active" *ngIf="authServ.loggedIn()">Users</a></li>
-        <li><a routerLink="/black-list" routerLinkActive="active" *ngIf="authServ.loggedIn()">Black list</a></li>
+        <li><a routerLink="/black-list"  routerLinkActive="active" *ngIf="admin.isAdmin()">Black list</a></li>
         <li><a class = "coll-md-12" (click) = "authServ.logout()" *ngIf="authServ.loggedIn()">Logout</a> </li>
       </ul>
     </nav>
